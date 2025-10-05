@@ -1,16 +1,17 @@
-# task_4
+# Logger DI Demo (Dart)
 
-A new Flutter project.
+## Run
+dart run lib/main.dart
 
-## Getting Started
+## What to look for
+The run demonstrates the consumer `AppService` constructed with:
+- ConsoleLogger (Implementation A): prints full log entries prefixed with `[ConsoleLogger]`.
+- FileLogger (Implementation B): appends logs to `logs/app.log` and prints short confirmation lines prefixed with `[FileLogger]`.
+- MockLogger (optional): captures entries in memory and prints captured lines prefixed with `[MockLogger]`.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Files
+- lib/logger.dart — interface
+- lib/app_service.dart — consumer (depends only on interface)
+- lib/console_logger.dart — Implementation A
+- lib/file_logger.dart — Implementation B
+- lib/main.dart — demo (constructs consumer with each implementation sequentially)
